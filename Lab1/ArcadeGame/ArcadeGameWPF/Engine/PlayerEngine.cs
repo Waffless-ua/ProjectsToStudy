@@ -1,4 +1,5 @@
-﻿using ArcadeGameWPF.Models;
+﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows;
 
 namespace ArcadeGameWPF.Engine
 {
-    public class PlayerEngine
+    public class PlayerEngine : IEngine
     {
         private PlayerObject Player;
         public int MapSizeX { get; set; }
@@ -26,7 +27,7 @@ namespace ArcadeGameWPF.Engine
 
         }
         public HashSet<string> _keysPressed = new HashSet<string>();
-        public void PlayerLoop(double deltaTime)
+        public void Loop(double deltaTime, double GlobalTime)
         {
             double distance = Player.Speed * deltaTime;
 

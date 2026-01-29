@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="API\IEngine.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\HealthToHeartsConverter.cs" />
     <Compile Include="Engine\BulletEngine.cs" />

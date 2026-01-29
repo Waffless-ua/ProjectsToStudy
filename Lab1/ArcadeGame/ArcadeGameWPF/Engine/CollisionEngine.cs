@@ -1,4 +1,5 @@
-﻿using ArcadeGameWPF.Models;
+﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Windows.Media.Animation;
 
 namespace ArcadeGameWPF.Engine
 {
-    public class CollisionEngine
+    public class CollisionEngine : IEngine
     {
         private PlayerObject Player;
         private ObservableCollection<EnemyObject> EnemyObjects;
@@ -30,7 +31,7 @@ namespace ArcadeGameWPF.Engine
             BulletObjects = bulletObjects;
         }
 
-        public void CollisionLoop(double deltaTime, double globalTime)
+        public void Loop(double deltaTime, double globalTime)
         {
             CheckBulletsCollision();
             CheckPlayerCollision();

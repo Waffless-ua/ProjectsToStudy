@@ -10,7 +10,6 @@ namespace ArcadeGameWPF.ViewModels
     {
         public BaseViewModel CurrentViewModel { get; private set; }
 
-
         public MainViewModel() 
         {
             CurrentViewModel = new GameEnvironmentViewModel();

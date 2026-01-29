@@ -1,4 +1,5 @@
-﻿using ArcadeGameWPF.Models;
+﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +11,7 @@ using System.Windows.Input;
 
 namespace ArcadeGameWPF.Engine
 {
-    public class BulletEngine
+    public class BulletEngine : IEngine
     {
         private PlayerObject Player;
         private ObservableCollection<BulletObject> BulletObjects;
@@ -32,7 +33,7 @@ namespace ArcadeGameWPF.Engine
         public HashSet<string> _keysPressed = new HashSet<string>();
 
 
-        public void BulletLoop(double deltatime, double globalTime)
+        public void Loop(double deltatime, double globalTime)
         {
             MoveBullet(deltatime);
             SpawnBullet(globalTime);

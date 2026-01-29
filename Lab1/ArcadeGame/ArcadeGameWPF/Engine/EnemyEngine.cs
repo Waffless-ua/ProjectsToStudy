@@ -1,4 +1,5 @@
-﻿using ArcadeGameWPF.Models;
+﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ArcadeGameWPF.Engine
 {
-    public class EnemyEngine
+    public class EnemyEngine : IEngine
     {
         private Random random = new Random();
 
@@ -31,7 +32,7 @@ namespace ArcadeGameWPF.Engine
         }
 
 
-        public void EnemyLoop(double deltatime, double globalTime)
+        public void Loop(double deltatime, double globalTime)
         {
             if (globalTime - LastSpawn > SpawnInterval)
             {

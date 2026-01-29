@@ -21,8 +21,10 @@ namespace ArcadeGameWPF.Engine
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
 
-        public GameEngine(PlayerObject player, 
-            ObservableCollection<EnemyObject> enemyObjects, ObservableCollection<BulletObject> bulletObjects,
+        public GameEngine(
+            PlayerObject player, 
+            ObservableCollection<EnemyObject> enemyObjects,
+            ObservableCollection<BulletObject> bulletObjects,
             int mapSizeX, int mapSizeY)
         {
             MapSizeX = mapSizeX;
@@ -45,10 +47,10 @@ namespace ArcadeGameWPF.Engine
 
             GlobalTime += deltaTime;
 
-            playerEngine.PlayerLoop(deltaTime);
-            enemyEngine.EnemyLoop(deltaTime, GlobalTime);
-            bulletEngine.BulletLoop(deltaTime, GlobalTime);
-            collisionEngine.CollisionLoop(deltaTime, GlobalTime);
+            playerEngine.Loop(deltaTime, GlobalTime);
+            enemyEngine.Loop(deltaTime, GlobalTime);
+            bulletEngine.Loop(deltaTime, GlobalTime);
+            collisionEngine.Loop(deltaTime, GlobalTime);
 
 
         }
