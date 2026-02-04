@@ -14,4 +14,4 @@ The CollisionEngine works with all objects and processes logic during collisions
 ### Liskov Substitution Principle(LSP)
 All engines inherit the Loop method from the [IEngine](Lab1/ArcadeGame/ArcadeGameWPF/API/IEngine.cs) interface. They all follow the same principle of updating object information every deltaTime for the UI.
 
-All game objects inherit from the [GameObject](Lab1/ArcadeGame/ArcadeGameWPF/Models/GameObject.cs) class, which contains properties for size and position.
+All game objects inherit from the [GameObject](Lab1/ArcadeGame/ArcadeGameWPF/Models/GameObject.cs) class, which contains properties for size and position. The most important feature of GameObject is that it implements OnNotifyPropertyChanged, which allows updating model data for the UI via data binding.
