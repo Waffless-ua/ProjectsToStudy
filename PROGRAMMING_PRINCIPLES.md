@@ -7,6 +7,7 @@ Here is 4 engines:
 - PlayerEngine - process logic for player movement
 - EnemyEngine - process logic for enemy movement and spawn
 - BulletEngine - process logic for bullet movement and spawn
+
 When CollisionEngine works with all objects and process logic during collision between them, for example deleting enemies after recieving enough damage to kill them.
 
 
