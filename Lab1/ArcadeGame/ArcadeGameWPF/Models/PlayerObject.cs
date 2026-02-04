@@ -42,7 +42,6 @@ namespace ArcadeGameWPF.Models
             SizeX = sx; 
             SizeY = sy;
             Speed = speed;
-
         }
     }
 }
