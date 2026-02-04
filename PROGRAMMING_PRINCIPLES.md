@@ -12,11 +12,5 @@ There are four engines:
 The CollisionEngine works with all objects and processes logic during collisions between them. For [example](/Lab1/ArcadeGame/ArcadeGameWPF/Engine/CollisionEngine.cs#L40-L57), it deletes enemies after they receive enough damage to be destroyed.
 
 ### Liskov Substitution Principle(LSP)
-Also all engines inherit method Loop from [IEngine](Lab1/ArcadeGame/ArcadeGameWPF/API/IEngine.cs) interface that updates information about objects every deltatime for UI using MVVM.
-All game objects follow GameObject that contains size and position.
-
-
-
-
-
-[Example of Liskov Substitution Principle(LSP)](Lab1/ArcadeGame/ArcadeGameWPF/Models)
+All engines inherit the Loop method from the [IEngine](Lab1/ArcadeGame/ArcadeGameWPF/API/IEngine.cs) interface. They all follow the same principle of updating object information every deltaTime for the UI.
+All game objects inherit from the [GameObject](Lab1/ArcadeGame/ArcadeGameWPF/Models/GameObject.cs) class, which contains properties for size and position.
