@@ -72,11 +72,11 @@ namespace ArcadeGameWPF.ViewModels
         {
             switch (key)
             {
-                case Key.W: gameEngine.playerEngine._keysPressed.Add("Up"); break;
-                case Key.S: gameEngine.playerEngine._keysPressed.Add("Down"); break;
-                case Key.A: gameEngine.playerEngine._keysPressed.Add("Left"); break;
-                case Key.D: gameEngine.playerEngine._keysPressed.Add("Right"); break;
-                case Key.Space: gameEngine.bulletEngine._keysPressed.Add("Space"); break;
+                case Key.W: gameEngine._keysPressed.Add("Up"); break;
+                case Key.S: gameEngine._keysPressed.Add("Down"); break;
+                case Key.A: gameEngine._keysPressed.Add("Left"); break;
+                case Key.D: gameEngine._keysPressed.Add("Right"); break;
+                case Key.Space: gameEngine._keysPressed.Add("Space"); break;
             }
         }
 
@@ -84,11 +84,11 @@ namespace ArcadeGameWPF.ViewModels
         {
             switch (key)
             {
-                case Key.W: gameEngine.playerEngine._keysPressed.Remove("Up"); break;
-                case Key.S: gameEngine.playerEngine._keysPressed.Remove("Down"); break;
-                case Key.A: gameEngine.playerEngine._keysPressed.Remove("Left"); break;
-                case Key.D: gameEngine.playerEngine._keysPressed.Remove("Right"); break;
-                case Key.Space: gameEngine.bulletEngine._keysPressed.Remove("Space"); break;
+                case Key.W: gameEngine._keysPressed.Remove("Up"); break;
+                case Key.S: gameEngine._keysPressed.Remove("Down"); break;
+                case Key.A: gameEngine._keysPressed.Remove("Left"); break;
+                case Key.D: gameEngine._keysPressed.Remove("Right"); break;
+                case Key.Space: gameEngine._keysPressed.Remove("Space"); break;
             }
         }
 

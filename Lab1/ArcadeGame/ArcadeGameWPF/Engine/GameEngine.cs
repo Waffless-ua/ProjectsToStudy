@@ -18,6 +18,7 @@ namespace ArcadeGameWPF.Engine
         public BulletEngine bulletEngine;
         public CollisionEngine collisionEngine;
 
+        public HashSet<string> _keysPressed = new HashSet<string>();
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
 
@@ -30,9 +31,9 @@ namespace ArcadeGameWPF.Engine
             MapSizeX = mapSizeX;
             MapSizeY = mapSizeY;
 
-            playerEngine = new PlayerEngine(player, mapSizeX, mapSizeY);
+            playerEngine = new PlayerEngine(player, mapSizeX, mapSizeY, _keysPressed);
             enemyEngine = new EnemyEngine(enemyObjects, mapSizeX, mapSizeY);
-            bulletEngine = new BulletEngine(player, bulletObjects, mapSizeX, mapSizeY);
+            bulletEngine = new BulletEngine(player, bulletObjects, _keysPressed, mapSizeX, mapSizeY);
             collisionEngine = new CollisionEngine(player, enemyObjects, bulletObjects, mapSizeX, mapSizeY);
 
             GlobalTime = 0;
