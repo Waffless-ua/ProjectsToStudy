@@ -67,21 +67,6 @@ namespace ArcadeGameWPF.ViewModels
 
             CompositionTarget.Rendering += gameEngine.GameLoop;
         }
-        public void OnWindowSizeChange(double width, double height)
-        {
-            Player.PositionX = (width - Player.SizeX) / 2;
-            Player.PositionY = (height - Player.SizeY) / 2;
-        }
-
-
-        private void GameLoop(object sender, EventArgs e)
-        {
-            var now = DateTime.Now;
-            var deltaTime = (now - _lastRender).TotalSeconds;
-            _lastRender = now;
-
-            double distance = Player.Speed * deltaTime;
-        }
 
         public void OnKeyDown(Key key)
         {
