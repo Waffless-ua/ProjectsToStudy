@@ -95,23 +95,4 @@
             Foreground="Red"
             Text="{Binding Player.Health, Converter={StaticResource HealthToHeartsConverter}}"/>
     </Grid>
-    
-  
-    <UserControl.InputBindings>
-        <KeyBinding Key="A"
-                Command="{Binding MoveCommand}"
-                CommandParameter="Left"/>
-
-        <KeyBinding Key="D"
-                Command="{Binding MoveCommand}"
-                CommandParameter="Right"/>
-
-        <KeyBinding Key="W"
-                Command="{Binding MoveCommand}"
-                CommandParameter="Up"/>
-
-        <KeyBinding Key="S"
-                Command="{Binding MoveCommand}"
-                CommandParameter="Down"/>
-    </UserControl.InputBindings>
 </UserControl>

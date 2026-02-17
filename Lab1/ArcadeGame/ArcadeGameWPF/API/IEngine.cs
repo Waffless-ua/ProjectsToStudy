@@ -8,7 +8,7 @@ namespace ArcadeGameWPF.API
 {
     public interface IEngine
     {
-        public void Loop(double deltaTime, double GlobalTime);
+        void Loop(double deltaTime, double GlobalTime);
 
     }
 }

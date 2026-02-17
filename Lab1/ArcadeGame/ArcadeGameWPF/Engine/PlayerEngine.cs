@@ -27,7 +27,7 @@ namespace ArcadeGameWPF.Engine
             Player.PositionX = MapSizeX / 2;
             Player.PositionY = MapSizeY / 2;
 
-        };
+        }
         public void Loop(double deltaTime, double GlobalTime)
         {
             double distance = Player.Speed * deltaTime;
