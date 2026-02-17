@@ -10,6 +10,7 @@ namespace ArcadeGameWPF.Engine
 {
     public class GameEngine
     {
+        public HashSet<string> _keysPressed = new HashSet<string>();
         private DateTime _lastRender;
         public double GlobalTime { get; private set; }
 

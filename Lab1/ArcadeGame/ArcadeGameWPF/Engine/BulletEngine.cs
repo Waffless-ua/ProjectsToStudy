@@ -17,20 +17,20 @@ namespace ArcadeGameWPF.Engine
         private ObservableCollection<BulletObject> BulletObjects;
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
+        private HashSet<string> KeysPressed { get; set; }
         public BulletEngine(PlayerObject player,
             ObservableCollection<BulletObject> bulletObjects,
-            int mapSizeX, int mapSizeY)
+            int mapSizeX, int mapSizeY, HashSet<string> _keysPressed)
         {
             Player = player;
             BulletObjects = bulletObjects;
             MapSizeX = mapSizeX;
             MapSizeY = mapSizeY;
+            KeysPressed = _keysPressed;
         }
 
         public double LastSpawn { get; set; } = -10;
         public double SpawnInterval { get; set; } = 0.5;
-
-        public HashSet<string> _keysPressed = new HashSet<string>();
 
 
         public void Loop(double deltatime, double globalTime)
@@ -48,7 +48,7 @@ namespace ArcadeGameWPF.Engine
         }
         public void SpawnBullet(double globalTime)
         {
-            if (_keysPressed.Contains("Space"))
+            if (KeysPressed.Contains("Space"))
             {
                 if (globalTime - LastSpawn > SpawnInterval)
                 {
