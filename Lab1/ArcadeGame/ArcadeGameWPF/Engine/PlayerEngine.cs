@@ -1,4 +1,5 @@
 ﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Enums;
 using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace ArcadeGameWPF.Engine
         private PlayerObject Player;
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
-        private HashSet<string> KeysPressed { get; set; }
-        public PlayerEngine(PlayerObject player, int mapSizeX, int mapSizeY, HashSet<string> _keysPressed)
+        private HashSet<KeyAction> KeysPressed { get; set; }
+        public PlayerEngine(PlayerObject player, int mapSizeX, int mapSizeY, HashSet<KeyAction> _keysPressed)
         {
             Player = player;
             MapSizeX = mapSizeX;
@@ -36,19 +37,19 @@ namespace ArcadeGameWPF.Engine
             {
                 switch (dir)
                 {
-                    case "Left": 
+                    case KeyAction.Left: 
                         if (Player.PositionX - distance > 0)
                             Player.PositionX -= distance; 
                         break;
-                    case "Right":
+                    case KeyAction.Right:
                         if (Player.PositionX + Player.SizeX + distance < MapSizeX)
                             Player.PositionX += distance; 
                         break;
-                    case "Up":
+                    case KeyAction.Up:
                         if (Player.PositionY - distance > 0)
                             Player.PositionY -= distance; 
                         break;
-                    case "Down":
+                    case KeyAction.Down:
                         if (Player.PositionY + Player.SizeY + distance < MapSizeY)
                             Player.PositionY += distance; 
                         break;

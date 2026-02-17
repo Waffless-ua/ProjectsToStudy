@@ -1,4 +1,5 @@
 ﻿using ArcadeGameWPF.API;
+using ArcadeGameWPF.Enums;
 using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ namespace ArcadeGameWPF.Engine
         private ObservableCollection<BulletObject> BulletObjects;
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
-        private HashSet<string> KeysPressed { get; set; }
+        private HashSet<KeyAction> KeysPressed { get; set; }
         public BulletEngine(PlayerObject player,
             ObservableCollection<BulletObject> bulletObjects,
-            int mapSizeX, int mapSizeY, HashSet<string> _keysPressed)
+            int mapSizeX, int mapSizeY, HashSet<KeyAction> _keysPressed)
         {
             Player = player;
             BulletObjects = bulletObjects;
@@ -48,7 +49,7 @@ namespace ArcadeGameWPF.Engine
         }
         public void SpawnBullet(double globalTime)
         {
-            if (KeysPressed.Contains("Space"))
+            if (KeysPressed.Contains(KeyAction.Shot))
             {
                 if (globalTime - LastSpawn > SpawnInterval)
                 {
@@ -63,7 +64,5 @@ namespace ArcadeGameWPF.Engine
                 }
             }
         }
-
-
     }
 }
