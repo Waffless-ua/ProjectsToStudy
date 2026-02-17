@@ -14,24 +14,25 @@ namespace ArcadeGameWPF.Engine
         private PlayerObject Player;
         public int MapSizeX { get; set; }
         public int MapSizeY { get; set; }
-        public PlayerEngine(PlayerObject player, int mapSizeX, int mapSizeY)
+        private HashSet<string> KeysPressed { get; set; }
+        public PlayerEngine(PlayerObject player, int mapSizeX, int mapSizeY, HashSet<string> _keysPressed)
         {
             Player = player;
             MapSizeX = mapSizeX;
             MapSizeY = mapSizeY;
+            KeysPressed = _keysPressed;
 
 
 
             Player.PositionX = MapSizeX / 2;
             Player.PositionY = MapSizeY / 2;
 
-        }
-        public HashSet<string> _keysPressed = new HashSet<string>();
+        };
         public void Loop(double deltaTime, double GlobalTime)
         {
             double distance = Player.Speed * deltaTime;
 
-            foreach (var dir in _keysPressed)
+            foreach (var dir in KeysPressed)
             {
                 switch (dir)
                 {
