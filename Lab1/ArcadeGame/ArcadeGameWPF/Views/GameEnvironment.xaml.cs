@@ -31,7 +31,6 @@ namespace ArcadeGameWPF.Views
             if (DataContext is GameEnvironmentViewModel vm)
                 vm.OnKeyDown(e.Key);
         }
-
         private void UserControl_KeyUp(object sender, KeyEventArgs e)
         {
             if (DataContext is GameEnvironmentViewModel vm)

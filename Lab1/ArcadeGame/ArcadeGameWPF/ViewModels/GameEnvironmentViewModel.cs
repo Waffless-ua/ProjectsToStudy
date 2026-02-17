@@ -1,5 +1,6 @@
 ﻿using ArcadeGameWPF.Commands;
 using ArcadeGameWPF.Engine;
+using ArcadeGameWPF.Enums;
 using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
@@ -47,12 +48,7 @@ namespace ArcadeGameWPF.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        private DateTime _lastRender;
-
         public GameEngine gameEngine { get; set; }
-
-
         public int MapSizeX { get; set; } = 1280;
         public int MapSizeY { get; set; } = 720;
 
@@ -63,36 +59,19 @@ namespace ArcadeGameWPF.ViewModels
             Bullets = new ObservableCollection<BulletObject>();
             gameEngine = new GameEngine(Player, Enemies, Bullets, MapSizeX, MapSizeY);
 
-
-
             CompositionTarget.Rendering += gameEngine.GameLoop;
         }
 
         public void OnKeyDown(Key key)
         {
-            switch (key)
-            {
-                case Key.W: gameEngine._keysPressed.Add("Up"); break;
-                case Key.S: gameEngine._keysPressed.Add("Down"); break;
-                case Key.A: gameEngine._keysPressed.Add("Left"); break;
-                case Key.D: gameEngine._keysPressed.Add("Right"); break;
-                case Key.Space: gameEngine._keysPressed.Add("Space"); break;
-            }
+            if (KeyBindings.Default.TryGetValue(key, out var action))
+                gameEngine._actionsPressed.Add(action);
         }
 
         public void OnKeyUp(Key key)
         {
-            switch (key)
-            {
-                case Key.W: gameEngine._keysPressed.Remove("Up"); break;
-                case Key.S: gameEngine._keysPressed.Remove("Down"); break;
-                case Key.A: gameEngine._keysPressed.Remove("Left"); break;
-                case Key.D: gameEngine._keysPressed.Remove("Right"); break;
-                case Key.Space: gameEngine._keysPressed.Remove("Space"); break;
-            }
+            if (KeyBindings.Default.TryGetValue(key, out var action))
+                gameEngine._actionsPressed.Remove(action);
         }
-
-
-
     }
 }

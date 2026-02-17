@@ -63,6 +63,7 @@
     <Compile Include="Engine\EnemyEngine.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Engine\PlayerEngine.cs" />
+    <Compile Include="Enums\KeyAction.cs" />
     <Compile Include="Models\BulletObject.cs" />
     <Compile Include="Models\EnemyObject.cs" />
     <Compile Include="Models\PlayerObject.cs" />
