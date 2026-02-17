@@ -1,16 +1,19 @@
-﻿using ArcadeGameWPF.Models;
+﻿using ArcadeGameWPF.Enums;
+using ArcadeGameWPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ArcadeGameWPF.Engine
 {
     public class GameEngine
     {
-        public HashSet<string> _keysPressed = new HashSet<string>();
+        public HashSet<KeyAction> _actionsPressed = new HashSet<KeyAction>();
+
         private DateTime _lastRender;
         public double GlobalTime { get; private set; }
 
@@ -31,9 +34,9 @@ namespace ArcadeGameWPF.Engine
             MapSizeX = mapSizeX;
             MapSizeY = mapSizeY;
 
-            playerEngine = new PlayerEngine(player, mapSizeX, mapSizeY, _keysPressed);
+            playerEngine = new PlayerEngine(player, mapSizeX, mapSizeY, _actionsPressed);
             enemyEngine = new EnemyEngine(enemyObjects, mapSizeX, mapSizeY);
-            bulletEngine = new BulletEngine(player, bulletObjects, mapSizeX, mapSizeY, _keysPressed);
+            bulletEngine = new BulletEngine(player, bulletObjects, mapSizeX, mapSizeY, _actionsPressed);
             collisionEngine = new CollisionEngine(player, enemyObjects, bulletObjects, mapSizeX, mapSizeY);
 
             GlobalTime = 0;
